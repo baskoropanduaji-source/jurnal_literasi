@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Jurnal Literasi Membaca - SDN 183/II Sumber Mulya</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            box-sizing: border-box;
+            -webkit-text-size-adjust: 100%;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .fade-in {
+            animation: fadeIn 0.5s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .nav-active {
+            background: linear-gradient(135deg, #d4af37 0%, #ffd700 100%);
+            color: white;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #fffef7 0%, #faf8f1 100%);
+        }
+        
+        /* Mobile optimizations */
+        @media (max-width: 768px) {
+            .mobile-nav {
+                overflow-x: auto;
+                scrollbar-width: none;
+                -ms-overflow-style: none;
+            }
+            .mobile-nav::-webkit-scrollbar {
+                display: none;
+            }
+            .mobile-grid {
+                grid-template-columns: 1fr;
+            }
+            .mobile-text {
+                font-size: 0.875rem;
+            }
+            .mobile-padding {
+                padding: 1rem;
+            }
+            .mobile-header {
+                padding: 1rem;
+            }
+        }
+        
+        /* Touch-friendly buttons */
+        button, .clickable {
+            min-height: 44px;
+            touch-action: manipulation;
+        }
+        
+        /* Better form inputs on mobile */
+        input, select, textarea {
+            font-size: 16px; /* Prevents zoom on iOS */
+        }
+    </style>
+</head>
+<body class="gradient-bg min-h-screen">
+    <!-- Header -->
+    <header class="bg-white shadow-sm border-b">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 py-4 sm:py-6 mobile-header">
+            <div class="flex flex-col sm:flex-row items-center justify-center text-center sm:text-left gap-4">
+                <!-- Logo Sekolah -->
+                <img src="https://iili.io/KEeE8DF.th.png" alt="Logo Sekolah" class="w-20 h-20 sm:w-24 sm:h-24 object-contain">
+                
+                <!-- Judul -->
+                <div>
+                    <h1 class="text-xl sm:text-3xl font-bold text-yellow-600 uppercase tracking-wide">JURNAL LITERASI MEMBACA</h1>
+                    <p class="text-sm sm:text-lg text-gray-700 mt-1 sm:mt-2 font-medium">SDN 183/II Sumber Mulya</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm">
+        <div class="max-w-6xl mx-auto px-2 sm:px-6">
+            <div class="flex justify-center space-x-1 mobile-nav">
+                <button onclick="showPage('perpustakaan')" id="nav-perpustakaan" class="nav-active px-3 sm:px-6 py-3 text-xs sm:text-sm font-medium rounded-t-lg transition-all whitespace-nowrap">
+                    Perpustakaan Digital
+                </button>
+                <button onclick="showPage('jurnal')" id="nav-jurnal" class="px-3 sm:px-6 py-3 text-xs sm:text-sm font-medium text-gray-600 hover:text-gray-800 rounded-t-lg transition-all whitespace-nowrap">
+                    Jurnal Membaca
+                </button>
+                <button onclick="showPage('statistik')" id="nav-statistik" class="px-3 sm:px-6 py-3 text-xs sm:text-sm font-medium text-gray-600 hover:text-gray-800 rounded-t-lg transition-all whitespace-nowrap">
+                    Statistik & Peringkat
+                </button>
+                <button onclick="showPage('rekapan')" id="nav-rekapan" class="px-3 sm:px-6 py-3 text-xs sm:text-sm font-medium text-gray-600 hover:text-gray-800 rounded-t-lg transition-all whitespace-nowrap">
+                    Rekapan Data
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 py-4 sm:py-8">
+        <!-- Perpustakaan Digital Page -->
+        <div id="page-perpustakaan" class="page-content fade-in">
+            <div class="bg-white rounded-xl shadow-sm p-4 sm:p-8 mobile-padding">
+                <h2 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-2">Perpustakaan Digital</h2>
+                <p class="text-sm sm:text-base text-gray-600 mb-6 sm:mb-8">Akses koleksi buku digital untuk mendukung kegiatan literasi membaca</p>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 mobile-grid">
+                    <!-- Literacy Cloud -->
+                    <div class="bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-xl p-6 hover:shadow-lg transition-all cursor-pointer border border-yellow-200" onclick="window.open('https://literacycloud.org', '_blank', 'noopener,noreferrer')">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Literacy Cloud</h3>
+                        <p class="text-gray-600 text-sm mb-4">Platform buku digital dengan koleksi lengkap untuk semua tingkat</p>
+                        <div class="flex items-center text-yellow-600 text-sm font-medium">
+                            <span>Buka Perpustakaan</span>
+                            <span class="ml-2">→</span>
+                        </div>
+                    </div>
+
+                    <!-- SIBI -->
+                    <div class="bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-xl p-6 hover:shadow-lg transition-all cursor-pointer border border-yellow-200" onclick="window.open('https://buku.kemendikdasmen.go.id', '_blank', 'noopener,noreferrer')">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-3">SIBI</h3>
+                        <p class="text-gray-600 text-sm mb-4">Sistem Informasi Buku Indonesia dari Kemendikbudristek</p>
+                        <div class="flex items-center text-yellow-600 text-sm font-medium">
+                            <span>Buka Perpustakaan</span>
+                            <span class="ml-2">→</span>
+                        </div>
+                    </div>
+
+                    <!-- BUDI -->
+                    <div class="bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-xl p-6 hover:shadow-lg transition-all cursor-pointer border border-yellow-200" onclick="window.open('https://budi.kemendikdasmen.go.id', '_blank', 'noopener,noreferrer')">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-3">BUDI</h3>
+                        <p class="text-gray-600 text-sm mb-4">Buku Digital Interaktif untuk pembelajaran yang menyenangkan</p>
+                        <div class="flex items-center text-yellow-600 text-sm font-medium">
+                            <span>Buka Perpustakaan</span>
+                            <span class="ml-2">→</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Jurnal Membaca Page -->
+        <div id="page-jurnal" class="page-content hidden">
+            <div class="bg-white rounded-xl shadow-sm p-4 sm:p-8 mobile-padding">
+                <h2 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-2">Jurnal Membaca</h2>
+                <p class="text-sm sm:text-base text-gray-600 mb-6 sm:mb-8">Catat aktivitas membaca Anda untuk membangun kebiasaan literasi yang baik</p>
+                
+                <form id="jurnalForm" class="space-y-4 sm:space-y-6">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Nama Lengkap</label>
+                            <input type="text" id="nama" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-all">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Kelas</label>
+                            <select id="kelas" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-all">
+                                <option value="">Pilih Kelas</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Tanggal Membaca</label>
+                            <input type="date" id="tanggal" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-all">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Judul Buku</label>
+                            <input type="text" id="judul" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-all">
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Ringkasan Buku</label>
+                        <textarea id="ringkasan" required rows="6" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-all" placeholder="Tuliskan ringkasan singkat tentang buku yang telah dibaca..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="w-full bg-gradient-to-r from-yellow-500 to-yellow-600 text-white py-3 px-6 rounded-lg font-medium hover:from-yellow-600 hover:to-yellow-700 transition-all transform hover:scale-105">
+                        Simpan Jurnal Membaca
+                    </button>
+                </form>
+                
+                <div id="successMessage" class="hidden mt-6 p-4 bg-green-50 border border-green-200 rounded-lg">
+                    <div class="flex items-center">
+                        <span class="text-green-600 mr-2">✓</span>
+                        <span class="text-green-800">Jurnal berhasil disimpan! Terima kasih telah berbagi pengalaman membaca Anda.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Statistik Page -->
+        <div id="page-statistik" class="page-content hidden">
+            <div class="bg-white rounded-xl shadow-sm p-4 sm:p-8 mobile-padding">
+                <h2 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-2">Statistik & Peringkat</h2>
+                <p class="text-sm sm:text-base text-gray-600 mb-6 sm:mb-8">Lihat pencapaian dan peringkat siswa dalam kegiatan literasi membaca</p>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 mb-6 sm:mb-8">
+                    <div class="bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-xl p-6 border border-yellow-200">
+                        <div class="text-right mb-4">
+                            <span class="text-3xl font-bold text-yellow-600" id="totalEntries">0</span>
+                        </div>
+                        <h3 class="font-semibold text-gray-800">Total Jurnal</h3>
+                        <p class="text-sm text-gray-600">Jurnal yang telah dibuat</p>
+                    </div>
+                    
+                    <div class="bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-xl p-6 border border-yellow-200">
+                        <div class="text-right mb-4">
+                            <span class="text-3xl font-bold text-yellow-600" id="activeStudents">0</span>
+                        </div>
+                        <h3 class="font-semibold text-gray-800">Siswa Aktif</h3>
+                        <p class="text-sm text-gray-600">Siswa yang sudah mengisi</p>
+                    </div>
+                    
+                    <div class="bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-xl p-6 border border-yellow-200">
+                        <div class="text-right mb-4">
+                            <span class="text-3xl font-bold text-yellow-600" id="totalBooks">0</span>
+                        </div>
+                        <h3 class="font-semibold text-gray-800">Buku Dibaca</h3>
+                        <p class="text-sm text-gray-600">Total buku yang dibaca</p>
+                    </div>
+                </div>
+                
+                <div class="bg-yellow-50 rounded-xl p-6 border border-yellow-200">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Peringkat Siswa Terbaik</h3>
+                    <div id="leaderboard" class="space-y-3">
+                        <div class="flex items-center justify-between p-4 bg-white rounded-lg">
+                            <span class="text-gray-500">Memuat data peringkat...</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Rekapan Data Page -->
+        <div id="page-rekapan" class="page-content hidden">
+            <div class="bg-white rounded-xl shadow-sm p-4 sm:p-8 mobile-padding">
+                <h2 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-2">Rekapan Data</h2>
+                <p class="text-sm sm:text-base text-gray-600 mb-6 sm:mb-8">Unduh dan kelola data jurnal membaca siswa dalam format Excel</p>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mb-6 sm:mb-8">
+                    <div class="bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-xl p-6 border border-yellow-200">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Lihat Data Online</h3>
+                        <p class="text-gray-600 text-sm mb-4">Akses langsung ke Google Spreadsheet untuk melihat data real-time</p>
+                        <button onclick="window.open('https://docs.google.com/spreadsheets/d/1F9GFsTwe-CAokTdBSL4JB1RgzYOH-GKwzFRr4q3V0Ec/edit?gid=0#gid=0', '_blank', 'noopener,noreferrer')" class="bg-yellow-500 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-yellow-600 transition-all">
+                            Buka Spreadsheet
+                        </button>
+                    </div>
+                    
+                    <div class="bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-xl p-6 border border-yellow-200">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Unduh Excel</h3>
+                        <p class="text-gray-600 text-sm mb-4">Download data dalam format Excel untuk analisis lebih lanjut</p>
+                        <button onclick="downloadExcel()" class="bg-yellow-500 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-yellow-600 transition-all">
+                            Download Excel
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="bg-yellow-50 rounded-xl p-6 border border-yellow-200">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4">Preview Data</h3>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-sm">
+                            <thead>
+                                <tr class="border-b border-gray-200">
+                                    <th class="text-left py-3 px-4 font-medium text-gray-700">No</th>
+                                    <th class="text-left py-3 px-4 font-medium text-gray-700">Nama</th>
+                                    <th class="text-left py-3 px-4 font-medium text-gray-700">Kelas</th>
+                                    <th class="text-left py-3 px-4 font-medium text-gray-700">Tanggal</th>
+                                    <th class="text-left py-3 px-4 font-medium text-gray-700">Judul Buku</th>
+                                </tr>
+                            </thead>
+                            <tbody id="dataPreview">
+                                <tr>
+                                    <td colspan="5" class="text-center py-8 text-gray-500">Memuat data...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t mt-8 sm:mt-12">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 py-4 sm:py-6">
+            <div class="text-center">
+                <p class="text-base sm:text-lg font-semibold text-yellow-600">Sekolah Pemimpin Masa Depan</p>
+                <p class="text-xs sm:text-sm text-gray-600 mt-1">SDN 183/II Sumber Mulya</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // === CONFIG: masukkan URL Web App Apps Script Anda di sini (atau biarkan placeholder) ===
+        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbw7b5gsWHBADYh40Yty1z8dO8b4zEzZa7aaLKyD8-GDI6JFaKMq51S3WLqk_eGEH4ds4A/exec"; // Ganti dengan URL Web App (opsional)
+
+        // Sample data untuk demo (format: nama, kelas, tanggal, judul, ringkasan)
+        let journalData = [];
+
+        // Navigation
+        function showPage(pageId) {
+            // Hide all pages
+            document.querySelectorAll('.page-content').forEach(page => {
+                page.classList.add('hidden');
+            });
+            
+            // Remove active class from all nav buttons
+            document.querySelectorAll('nav button').forEach(btn => {
+                btn.classList.remove('nav-active');
+                btn.classList.add('text-gray-600', 'hover:text-gray-800');
+            });
+            
+            // Show selected page (pages have id "page-<pageId>")
+            document.getElementById(`page-${pageId}`).classList.remove('hidden');
+            document.getElementById(`page-${pageId}`).classList.add('fade-in');
+            
+            // Add active class to selected nav button
+            const activeBtn = document.getElementById(`nav-${pageId}`);
+            if (activeBtn) {
+                activeBtn.classList.add('nav-active');
+                activeBtn.classList.remove('text-gray-600', 'hover:text-gray-800');
+            }
+            
+            // Load page-specific data
+            if (pageId === 'statistik') {
+                loadStatistics();
+            } else if (pageId === 'rekapan') {
+                loadDataPreview();
+            }
+        }
+
+        // Form submission
+        document.getElementById('jurnalForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = {
+                nama: document.getElementById('nama').value,
+                kelas: document.getElementById('kelas').value,
+                tanggal: document.getElementById('tanggal').value,
+                judul: document.getElementById('judul').value,
+                ringkasan: document.getElementById('ringkasan').value
+            };
+            
+            // Add to local data (in real app, this would submit to Google Sheets)
+            journalData.push(formData);
+            
+            // If SCRIPT_URL is provided (deployed Apps Script web app), send to server as well
+            if (SCRIPT_URL && SCRIPT_URL !== "PASTE_URL_WEB_APP_ANDA_DI_SINI") {
+                // Send payload matching Apps Script fields (judulBuku expected by some scripts)
+                const payload = {
+                    nama: formData.nama,
+                    kelas: formData.kelas,
+                    tanggal: formData.tanggal,
+                    judulBuku: formData.judul, // map 'judul' -> 'judulBuku' for Apps Script
+                    ringkasan: formData.ringkasan
+                };
+                fetch(SCRIPT_URL, {
+                    method: 'POST',
+                    body: JSON.stringify(payload)
+                })
+                .then(res => res.json())
+                .then(res => console.log('Server response:', res))
+                .catch(err => console.warn('Gagal kirim ke server:', err));
+            } else {
+                console.log('Data yang akan dikirim ke Google Sheets (SCRIPT_URL kosong):', formData);
+            }
+            
+            // Show success message
+            document.getElementById('successMessage').classList.remove('hidden');
+            
+            // Reset form
+            this.reset();
+            
+            // Hide success message after 3 seconds
+            setTimeout(() => {
+                document.getElementById('successMessage').classList.add('hidden');
+            }, 3000);
+        });
+
+        // Load statistics
+        function loadStatistics() {
+            document.getElementById('totalEntries').textContent = journalData.length;
+            
+            const uniqueStudents = [...new Set(journalData.map(item => item.nama))];
+            document.getElementById('activeStudents').textContent = uniqueStudents.length;
+            
+            const uniqueBooks = [...new Set(journalData.map(item => item.judul))];
+            document.getElementById('totalBooks').textContent = uniqueBooks.length;
+            
+            // Create leaderboard
+            const studentCounts = {};
+            journalData.forEach(item => {
+                studentCounts[item.nama] = (studentCounts[item.nama] || 0) + 1;
+            });
+            
+            const leaderboard = Object.entries(studentCounts)
+                .sort(([,a], [,b]) => b - a)
+                .slice(0, 5);
+            
+            const leaderboardHTML = leaderboard.map(([nama, count], index) => {
+                const ranks = ['1', '2', '3', '4', '5'];
+                return `
+                    <div class="flex items-center justify-between p-4 bg-white rounded-lg border border-yellow-100">
+                        <div class="flex items-center">
+                            <span class="w-8 h-8 bg-yellow-500 text-white rounded-full flex items-center justify-center text-sm font-bold mr-3">${ranks[index]}</span>
+                            <span class="font-medium text-gray-800">${nama}</span>
+                        </div>
+                        <span class="text-lg font-bold text-yellow-600">${count} buku</span>
+                    </div>
+                `;
+            }).join('');
+            
+            document.getElementById('leaderboard').innerHTML = leaderboardHTML || '<div class="text-center py-4 text-gray-500">Belum ada data</div>';
+        }
+
+        // Load data preview
+        function loadDataPreview() {
+            const previewHTML = journalData.slice(0, 100).map((item, index) => `
+                <tr class="border-b border-gray-100">
+                    <td class="py-3 px-4">${index + 1}</td>
+                    <td class="py-3 px-4">${item.nama}</td>
+                    <td class="py-3 px-4">${item.kelas}</td>
+                    <td class="py-3 px-4">${item.tanggal}</td>
+                    <td class="py-3 px-4">${item.judul}</td>
+                </tr>
+            `).join('');
+            
+            document.getElementById('dataPreview').innerHTML = previewHTML || '<tr><td colspan="5" class="text-center py-8 text-gray-500">Belum ada data</td></tr>';
+        }
+
+        // Download Excel function (CSV)
+        function downloadExcel() {
+            // Create CSV content
+            const headers = ['No', 'Nama', 'Kelas', 'Tanggal', 'Judul Buku', 'Ringkasan'];
+            const csvContent = [
+                headers.join(','),
+                ...journalData.map((item, index) => [
+                    index + 1,
+                    `"${item.nama}"`,
+                    `"${item.kelas}"`,
+                    item.tanggal,
+                    `"${item.judul}"`,
+                    `"${(item.ringkasan || '').replace(/"/g, '""')}"`
+                ].join(','))
+            ].join('\n');
+            
+            // Create and download file
+            const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+            const link = document.createElement('a');
+            const url = URL.createObjectURL(blob);
+            link.setAttribute('href', url);
+            link.setAttribute('download', 'jurnal-literasi-sdn183.csv');
+            link.style.visibility = 'hidden';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        // Set today's date as default
+        document.getElementById('tanggal').valueAsDate = new Date();
+        
+        // Initialize page
+        showPage('perpustakaan');
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'988d2c46173b81c2',t:'MTc1OTUwMjE5OS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
